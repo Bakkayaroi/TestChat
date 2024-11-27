@@ -35,27 +35,6 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
-      
-      document.addEventListener('DOMContentLoaded', function () {
-        // Наблюдатель для динамически создаваемых HTML-элементов
-        const observer = new MutationObserver((mutations) => {
-          mutations.forEach((mutation) => {
-            if (mutation.addedNodes) {
-              mutation.addedNodes.forEach((node) => {
-                if (node.tagName === 'INPUT') {
-                  // Скрываем нативное текстовое поле
-                  node.style.opacity = '0';
-                  node.style.position = 'absolute';
-                  node.style.pointerEvents = 'none';
-                }
-              });
-            }
-          });
-        });
-
-        // Наблюдение за изменениями в DOM
-        observer.observe(document.body, { childList: true, subtree: true });
-      });
     </script>
   </body>
 </html>
